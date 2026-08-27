@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arena Dev — Transformamos conhecimento em experiência</title>
+<meta name="description" content="Arena Dev é o ecossistema onde desenvolvedores aprendem, colaboram, constroem projetos reais e evoluem juntos.">
+<link rel="icon" type="image/png" href="assets/downloads/logotipo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<!-- ============ LOADING INTRO ============ -->
+<div class="preloader" id="preloader">
+  <div class="preloader-content">
+    <div class="preloader-logo">
+      <span class="pl-word pl-word-arena" aria-hidden="true"><span class="pl-letter">A</span><span class="pl-letter">r</span><span class="pl-letter">e</span><span class="pl-letter">n</span><span class="pl-letter">a</span></span>
+      <span class="pl-word pl-word-dev" aria-hidden="true"><span class="pl-letter">D</span><span class="pl-letter">e</span><span class="pl-letter">v</span></span>
+      <span class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;">Arena Dev</span>
+    </div>
+    <div class="preloader-sub">Carregando ecossistema</div>
+    <div class="preloader-bar-wrap">
+      <div class="preloader-bar-track"><div class="preloader-bar-fill" id="preloaderFill"></div></div>
+      <div class="preloader-meta">
+        <span class="preloader-status">INICIALIZANDO</span>
+        <span class="preloader-pct" id="preloaderPct">00%</span>
+      </div>
+    </div>
+  </div>
+  <div class="preloader-edge"><div class="e-orange"></div><div class="e-blue"></div></div>
+</div>
+
+<div class="top-progress" id="topProgress"></div>
+
+<!-- JOURNEY RAIL -->
+<nav class="rail" id="rail">
+  <div class="rail-track" id="railTrack">
+    <div class="rail-fill" id="railFill"></div>
+  </div>
+</nav>
+
+<!-- NAV -->
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><span class="bracket">&lt;</span>ARENA_DEV<span class="bracket">/&gt;</span><span class="blip"></span></a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="link active">Home</a></li>
+      <li><a href="sobre.html" class="link">Sobre</a></li>
+      <li class="dd">
+        <button class="link" type="button">Como funciona <span class="caret">▾</span></button>
+        <div class="dropdown">
+          <a href="como-funciona.html#devs">
+            <span class="ic"><i class="fa-solid fa-code"></i></span>
+            <span><span class="ttl">Para Devs</span><span class="sub">Turmas, projetos e evolução por XP</span></span>
+          </a>
+          <a href="como-funciona.html#leaders">
+            <span class="ic"><i class="fa-solid fa-chalkboard-user"></i></span>
+            <span><span class="ttl">Para Tech Leaders / Mentores</span><span class="sub">Liderança, revisão e orientação técnica</span></span>
+          </a>
+        </div>
+      </li>
+      <li class="dd">
+        <button class="link" type="button">Parcerias <span class="caret">▾</span></button>
+        <div class="dropdown">
+          <a href="parcerias.html#apoiadoras"><span class="ic"><i class="fa-solid fa-handshake"></i></span><span><span class="ttl">Empresas Apoiadoras</span><span class="sub">Apoio institucional para pequenos negócios</span></span></a>
+          <a href="parcerias.html#start"><span class="ic"><i class="fa-solid fa-toolbox"></i></span><span><span class="ttl">Empresas Start</span><span class="sub">Ferramentas, infraestrutura e serviços</span></span></a>
+          <a href="parcerias.html#investidoras"><span class="ic"><i class="fa-solid fa-coins"></i></span><span><span class="ttl">Empresas Investidoras</span><span class="sub">Investimento e conexão com talentos</span></span></a>
+        </div>
+      </li>
+      <li><a href="faq.html" class="link">FAQ</a></li>
+      <li><a href="contato.html" class="link">Contato</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="enter-link">Comunidade</a>
+      <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Quero participar</a>
+      <button class="burger" id="burgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE PANEL -->
+<div class="mobile-panel" id="mobilePanel">
+  <button class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></button>
+  <a href="index.html">Home</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="como-funciona.html">Como funciona</a>
+  <div class="mp-sub">
+    <a href="como-funciona.html#devs"><i class="fa-solid fa-code"></i> Para Devs</a>
+    <a href="como-funciona.html#leaders"><i class="fa-solid fa-chalkboard-user"></i> Para Tech Leaders</a>
+  </div>
+  <a href="parcerias.html">Parcerias</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contato.html">Contato</a>
+  <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="mp-link">Comunidade</a>
+  <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="mp-link" style="color:var(--violet)">Quero participar →</a>
+</div>
+
+<main>
+
+  <section id="home" class="hero" data-rail="Início">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="eyebrow reveal">Ecossistema Arena Dev</div>
+        <h1 class="reveal">Transformamos <span class="accent">conhecimento</span> em experiência.</h1>
+        <p class="lead reveal">O Arena Dev conecta desenvolvedores, mentores e empresas para transformar aprendizado em experiência prática, colaboração e oportunidades reais.</p>
+        <div class="hero-ctas reveal">
+          <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="btn btn-primary">Quero fazer parte</a>
+          <a href="sobre.html" class="btn btn-ghost">Conhecer o Arena Dev</a>
+        </div>
+      </div>
+
+      <div class="stat-hud reveal">
+        <div class="stat-chip"><div class="num"><span class="clr">+</span><span class="count" data-count="45">0</span></div><div class="lbl">Membros</div></div>
+        <div class="stat-chip"><div class="num"><span class="count" data-count="3">0</span></div><div class="lbl">Turmas ativas</div></div>
+        <div class="stat-chip"><div class="num">▲</div><div class="lbl">Projetos em desenvolvimento</div></div>
+        <div class="stat-chip"><div class="num">◆</div><div class="lbl">Mentores &amp; Tech Leaders</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE É (curto) -->
+  <section class="section" data-rail="O que é">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">O que é o Arena Dev</div>
+        <h2>Não é apenas uma comunidade.</h2>
+        <p>É um ambiente de desenvolvimento profissional, onde devs entram, formam turmas, constroem projetos reais com orientação de Tech Leaders — e saem com experiência de verdade.</p>
+      </div>
+      <a href="sobre.html" class="btn-line reveal" style="display:inline-block;">Conheça o Arena Dev →</a>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA (visão geral) -->
+  <section class="section" data-rail="Como funciona">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Como funciona</div>
+        <h2>Da inscrição à evolução.</h2>
+        <p>Uma jornada simples, pensada tanto para quem quer desenvolver quanto para quem quer liderar.</p>
+      </div>
+
+      <div class="mini-cycle reveal">
+        <div class="mini-cycle-step"><span class="n">01</span><h4>Entre para o ecossistema</h4><p>Inscreva-se e escolha sua turma.</p></div>
+        <div class="mini-cycle-step"><span class="n">02</span><h4>Desenvolva na prática</h4><p>Aprenda colaborando em projetos reais.</p></div>
+        <div class="mini-cycle-step"><span class="n">03</span><h4>Conecte-se com profissionais</h4><p>Tech Leaders orientam sua evolução.</p></div>
+        <div class="mini-cycle-step"><span class="n">04</span><h4>Construa oportunidades</h4><p>Aproxime-se de empresas parceiras.</p></div>
+      </div>
+
+      <a href="como-funciona.html" class="btn-line reveal" style="display:inline-block;margin-top:28px;">Entenda como funciona →</a>
+    </div>
+  </section>
+
+  <!-- POR QUE PARTICIPAR -->
+  <section class="section" data-rail="Por que participar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Por que participar</div>
+        <h2>Conhecimento sem prática não vira experiência.</h2>
+      </div>
+      <div class="grid-4">
+        <div class="card reveal"><div class="ic ic-violet"><i class="fa-solid fa-bullseye"></i></div><h4>Experiência prática</h4><p>Projetos reais, não exercícios genéricos.</p></div>
+        <div class="card reveal"><div class="ic ic-amber"><i class="fa-solid fa-handshake"></i></div><h4>Networking</h4><p>Conexão direta com devs, líderes e empresas.</p></div>
+        <div class="card reveal"><div class="ic ic-teal"><i class="fa-solid fa-puzzle-piece"></i></div><h4>Projetos</h4><p>Desafios reais desenvolvidos em equipe.</p></div>
+        <div class="card reveal"><div class="ic ic-violet"><i class="fa-solid fa-chalkboard-user"></i></div><h4>Mentoria</h4><p>Orientação ativa de Tech Leaders.</p></div>
+        <div class="card reveal"><div class="ic ic-amber"><i class="fa-solid fa-id-badge"></i></div><h4>Portfólio</h4><p>Evolução registrada e mostrável.</p></div>
+        <div class="card reveal"><div class="ic ic-teal"><i class="fa-solid fa-chart-line"></i></div><h4>Oportunidades</h4><p>Mais perto do mercado de trabalho real.</p></div>
+        <div class="card reveal"><div class="ic ic-violet"><i class="fa-solid fa-building"></i></div><h4>Empresas</h4><p>Acesso a um ecossistema com parceiros reais.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMPRESAS PARCEIRAS (APOIADORAS) -->
+  <section class="section" data-rail="Empresas" style="overflow:hidden;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Empresas Apoiadoras</div>
+        <h2>Empresas que acreditam no desenvolvimento de novos talentos.</h2>
+        <p>Pequenos negócios e iniciativas que já fazem parte do ecossistema Arena Dev.</p>
+      </div>
+    </div>
+
+    <div class="partners-marquee reveal">
+      <div class="partners-track">
+        
+        <a class="partner-logo-card" href="https://www.instagram.com/agentesterritoriaisdecultura/" target="_blank" rel="noopener" title="Agentes Territoriais de Cultura — PNCC">
+          <img src="assets/downloads/pncc.jpg" alt="Agentes Territoriais de Cultura — PNCC" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="partner-fallback">ATD</span>
+        </a>
+        <a class="partner-logo-card" href="https://www.ongoca.org/" target="_blank" rel="noopener" title="OCA — Organização Cultural Alternativa">
+          <img src="assets/downloads/oca.png" alt="OCA — Organização Cultural Alternativa" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="partner-fallback">OOC</span>
+        </a>
+        <a class="partner-logo-card" href="https://pauloamorim.site/FMA/" target="_blank" rel="noopener" title="FMA — Fundação Mulheres Aceleradas">
+          <img src="assets/downloads/fma.png" alt="FMA — Fundação Mulheres Aceleradas" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="partner-fallback">FFM</span>
+        </a>
+        <a class="partner-logo-card on-dark" href="https://redecob.site/" target="_blank" rel="noopener" title="COB — Conectando Orquestras Brasileiras">
+          <img src="assets/downloads/COB_Horizontal_Branco.png" alt="COB — Conectando Orquestras Brasileiras" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="partner-fallback">CCO</span>
+        </a>
+        <a class="partner-logo-card" href="https://sites.appbarber.com.br/barbeariaduarte25" target="_blank" rel="noopener" title="Barbearia Duarte">
+          <img src="assets/downloads/duarte.jpg" alt="Barbearia Duarte" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="partner-fallback">BD</span>
+        </a>
+        <a class="partner-logo-card" href="https://www.instagram.com/agentesterritoriaisdecultura/" target="_blank" rel="noopener" title="Agentes Territoriais de Cultura — PNCC">
+          <img src="assets/downloads/pncc.jpg" alt="Agentes Territoriais de Cultura — PNCC" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="partner-fallback">ATD</span>
+        </a>
+        <a class="partner-logo-card" href="https://www.ongoca.org/" target="_blank" rel="noopener" title="OCA — Organização Cultural Alternativa">
+          <img src="assets/downloads/oca.png" alt="OCA — Organização Cultural Alternativa" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="partner-fallback">OOC</span>
+        </a>
+        <a class="partner-logo-card" href="https://pauloamorim.site/FMA/" target="_blank" rel="noopener" title="FMA — Fundação Mulheres Aceleradas">
+          <img src="assets/downloads/fma.png" alt="FMA — Fundação Mulheres Aceleradas" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="partner-fallback">FFM</span>
+        </a>
+        <a class="partner-logo-card on-dark" href="https://redecob.site/" target="_blank" rel="noopener" title="COB — Conectando Orquestras Brasileiras">
+          <img src="assets/downloads/COB_Horizontal_Branco.png" alt="COB — Conectando Orquestras Brasileiras" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="partner-fallback">CCO</span>
+        </a>
+        <a class="partner-logo-card" href="https://sites.appbarber.com.br/barbeariaduarte25" target="_blank" rel="noopener" title="Barbearia Duarte">
+          <img src="assets/downloads/duarte.jpg" alt="Barbearia Duarte" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <span class="partner-fallback">BD</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <a href="parcerias.html" class="btn-line reveal" style="display:inline-block;margin-top:32px;">Conhecer as parcerias →</a>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section" data-rail="Faça parte">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2>Faça parte do Arena Dev.</h2>
+        <p>Pessoas mais preparadas. Projetos mais completos. Empresas mais próximas dos novos talentos.</p>
+        <div class="hero-ctas">
+          <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="btn btn-primary">Quero fazer parte</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><span class="bracket">&lt;</span>ARENA_DEV<span class="bracket">/&gt;</span></div>
+        <p>Um ecossistema onde desenvolvedores aprendem, colaboram, constroem projetos reais e evoluem juntos.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/arena-dev/about/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/arenadevoficial/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/ProjetoArenaDev" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="wa-cta"><i class="fab fa-whatsapp"></i> Entrar na comunidade do WhatsApp</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navegação</h5>
+        <a href="index.html">Home</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="como-funciona.html">Como funciona</a>
+        <a href="parcerias.html">Parcerias</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contato.html">Contato</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Ecossistema</h5>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">Quero ser Desenvolvedor</a>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">Quero ser Tech Leader</a>
+        <a href="parcerias.html">Empresa parceira</a>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">Comunidade</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Redes</h5>
+        <a href="https://www.linkedin.com/company/arena-dev/about/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://www.instagram.com/arenadevoficial/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://github.com/ProjetoArenaDev" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">WhatsApp ↗</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Arena Dev. Todos os direitos reservados.</span>
+      <span class="footer-tagline">LEVEL_UP() { junte-se ao próximo nível; }</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

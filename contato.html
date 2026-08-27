@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato — Arena Dev</title>
+<meta name="description" content="Fale com o time do Arena Dev: dúvidas, inscrições, mentoria ou proposta de parceria.">
+<link rel="icon" type="image/png" href="assets/downloads/logotipo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<div class="top-progress" id="topProgress"></div>
+
+<!-- JOURNEY RAIL -->
+<nav class="rail" id="rail">
+  <div class="rail-track" id="railTrack">
+    <div class="rail-fill" id="railFill"></div>
+  </div>
+</nav>
+
+<!-- NAV -->
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><span class="bracket">&lt;</span>ARENA_DEV<span class="bracket">/&gt;</span><span class="blip"></span></a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="link">Home</a></li>
+      <li><a href="sobre.html" class="link">Sobre</a></li>
+      <li class="dd">
+        <button class="link" type="button">Como funciona <span class="caret">▾</span></button>
+        <div class="dropdown">
+          <a href="como-funciona.html#devs">
+            <span class="ic"><i class="fa-solid fa-code"></i></span>
+            <span><span class="ttl">Para Devs</span><span class="sub">Turmas, projetos e evolução por XP</span></span>
+          </a>
+          <a href="como-funciona.html#leaders">
+            <span class="ic"><i class="fa-solid fa-chalkboard-user"></i></span>
+            <span><span class="ttl">Para Tech Leaders / Mentores</span><span class="sub">Liderança, revisão e orientação técnica</span></span>
+          </a>
+        </div>
+      </li>
+      <li class="dd">
+        <button class="link" type="button">Parcerias <span class="caret">▾</span></button>
+        <div class="dropdown">
+          <a href="parcerias.html#apoiadoras"><span class="ic"><i class="fa-solid fa-handshake"></i></span><span><span class="ttl">Empresas Apoiadoras</span><span class="sub">Apoio institucional para pequenos negócios</span></span></a>
+          <a href="parcerias.html#start"><span class="ic"><i class="fa-solid fa-toolbox"></i></span><span><span class="ttl">Empresas Start</span><span class="sub">Ferramentas, infraestrutura e serviços</span></span></a>
+          <a href="parcerias.html#investidoras"><span class="ic"><i class="fa-solid fa-coins"></i></span><span><span class="ttl">Empresas Investidoras</span><span class="sub">Investimento e conexão com talentos</span></span></a>
+        </div>
+      </li>
+      <li><a href="faq.html" class="link">FAQ</a></li>
+      <li><a href="contato.html" class="link active">Contato</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="enter-link">Comunidade</a>
+      <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Quero participar</a>
+      <button class="burger" id="burgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE PANEL -->
+<div class="mobile-panel" id="mobilePanel">
+  <button class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></button>
+  <a href="index.html">Home</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="como-funciona.html">Como funciona</a>
+  <div class="mp-sub">
+    <a href="como-funciona.html#devs"><i class="fa-solid fa-code"></i> Para Devs</a>
+    <a href="como-funciona.html#leaders"><i class="fa-solid fa-chalkboard-user"></i> Para Tech Leaders</a>
+  </div>
+  <a href="parcerias.html">Parcerias</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contato.html">Contato</a>
+  <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="mp-link">Comunidade</a>
+  <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="mp-link" style="color:var(--violet)">Quero participar →</a>
+</div>
+
+<main>
+
+  <section class="page-hero" data-rail="Contato">
+    <div class="wrap">
+      <div class="breadcrumb reveal"><a href="index.html">Home</a><span class="sep">/</span><span class="current">Contato</span></div>
+      <div class="eyebrow reveal">Contato</div>
+      <h1 class="reveal">Vamos conversar?</h1>
+      <p class="lead reveal">Escolha a opção que mais combina com o motivo do seu contato, ou preencha o formulário abaixo.</p>
+    </div>
+  </section>
+
+  <section class="section" data-rail="Falar com a gente" style="border-top:none;padding-top:0;">
+    <div class="wrap">
+      <div class="quick-grid">
+        <button class="quick-card reveal" data-quick-audience="Desenvolvedor">
+          <div class="em"><i class="fa-solid fa-code"></i></div>
+          <h4>Quero entrar no Arena Dev</h4>
+        </button>
+        <button class="quick-card reveal" data-quick-audience="Tech Leader">
+          <div class="em"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <h4>Quero ser mentor</h4>
+        </button>
+        <button class="quick-card reveal" data-quick-audience="Empresa">
+          <div class="em"><i class="fa-solid fa-building"></i></div>
+          <h4>Quero ser empresa parceira</h4>
+        </button>
+        <button class="quick-card reveal" data-quick-audience="Outros">
+          <div class="em"><i class="fa-solid fa-comment-dots"></i></div>
+          <h4>Tenho uma dúvida</h4>
+        </button>
+      </div>
+
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="eyebrow">Redes</div>
+          <h2 style="margin-bottom:16px;">Fale com o Arena Dev.</h2>
+          <p>Dúvidas, sugestões ou proposta de parceria? Nos envie uma mensagem ou fale direto pelas redes.</p>
+
+          <div class="social-list">
+            <a href="https://www.linkedin.com/company/arena-dev/about/" target="_blank" rel="noopener"><span class="ic-sq"><i class="fab fa-linkedin-in"></i></span> LinkedIn</a>
+            <a href="https://www.instagram.com/arenadevoficial/" target="_blank" rel="noopener"><span class="ic-sq"><i class="fab fa-instagram"></i></span> Instagram</a>
+            <a href="https://github.com/ProjetoArenaDev" target="_blank" rel="noopener"><span class="ic-sq"><i class="fab fa-github"></i></span> GitHub</a>
+            <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener"><span class="ic-sq"><i class="fab fa-whatsapp"></i></span> Comunidade no WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <form id="contactForm">
+            <label style="font-size:12.5px;color:var(--muted-2);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.05em;">Para quem você deseja falar?</label>
+            <div class="audience-pick">
+              <button type="button" class="audience-btn active" data-audience="Desenvolvedor">Desenvolvedor</button>
+              <button type="button" class="audience-btn" data-audience="Tech Leader">Tech Leader</button>
+              <button type="button" class="audience-btn" data-audience="Empresa">Empresa</button>
+              <button type="button" class="audience-btn" data-audience="Imprensa">Imprensa</button>
+              <button type="button" class="audience-btn" data-audience="Outros">Outros</button>
+            </div>
+
+            <div style="margin-top:24px;">
+              <div class="field"><label>Nome</label><input type="text" required placeholder="Seu nome completo"></div>
+              <div class="field"><label>E-mail</label><input type="email" required placeholder="voce@email.com"></div>
+              <div class="field"><label>Assunto</label><input type="text" required placeholder="Sobre o que você quer falar?"></div>
+              <div class="field"><label>Mensagem</label><textarea required placeholder="Conte com detalhes..."></textarea></div>
+              <button type="submit" class="btn btn-primary" style="width:100%;margin-top:6px;">Enviar mensagem</button>
+            </div>
+          </form>
+
+          <div class="form-success" id="contactSuccess">
+            <div class="em"><i class="fa-solid fa-circle-check"></i></div>
+            <h3 style="color:var(--text);margin-bottom:10px;">Mensagem enviada!</h3>
+            <p>Recebemos seu contato e vamos responder em breve.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><span class="bracket">&lt;</span>ARENA_DEV<span class="bracket">/&gt;</span></div>
+        <p>Um ecossistema onde desenvolvedores aprendem, colaboram, constroem projetos reais e evoluem juntos.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/arena-dev/about/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/arenadevoficial/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/ProjetoArenaDev" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="wa-cta"><i class="fab fa-whatsapp"></i> Entrar na comunidade do WhatsApp</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navegação</h5>
+        <a href="index.html">Home</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="como-funciona.html">Como funciona</a>
+        <a href="parcerias.html">Parcerias</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contato.html">Contato</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Ecossistema</h5>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">Quero ser Desenvolvedor</a>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">Quero ser Tech Leader</a>
+        <a href="parcerias.html">Empresa parceira</a>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">Comunidade</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Redes</h5>
+        <a href="https://www.linkedin.com/company/arena-dev/about/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://www.instagram.com/arenadevoficial/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://github.com/ProjetoArenaDev" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">WhatsApp ↗</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Arena Dev. Todos os direitos reservados.</span>
+      <span class="footer-tagline">LEVEL_UP() { junte-se ao próximo nível; }</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como funciona — Arena Dev</title>
+<meta name="description" content="Entenda a jornada do desenvolvedor e o papel do Tech Leader dentro do ecossistema Arena Dev.">
+<link rel="icon" type="image/png" href="assets/downloads/Logotipo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<div class="top-progress" id="topProgress"></div>
+
+<!-- JOURNEY RAIL -->
+<nav class="rail" id="rail">
+  <div class="rail-track" id="railTrack">
+    <div class="rail-fill" id="railFill"></div>
+  </div>
+</nav>
+
+<!-- NAV -->
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><span class="bracket">&lt;</span>ARENA_DEV<span class="bracket">/&gt;</span><span class="blip"></span></a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="link">Home</a></li>
+      <li><a href="sobre.html" class="link">Sobre</a></li>
+      <li class="dd active">
+        <button class="link" type="button">Como funciona <span class="caret">▾</span></button>
+        <div class="dropdown">
+          <a href="como-funciona.html#devs">
+            <span class="ic"><i class="fa-solid fa-code"></i></span>
+            <span><span class="ttl">Para Devs</span><span class="sub">Turmas, projetos e evolução por XP</span></span>
+          </a>
+          <a href="como-funciona.html#leaders">
+            <span class="ic"><i class="fa-solid fa-chalkboard-user"></i></span>
+            <span><span class="ttl">Para Tech Leaders / Mentores</span><span class="sub">Liderança, revisão e orientação técnica</span></span>
+          </a>
+        </div>
+      </li>
+      <li class="dd">
+        <button class="link" type="button">Parcerias <span class="caret">▾</span></button>
+        <div class="dropdown">
+          <a href="parcerias.html#apoiadoras"><span class="ic"><i class="fa-solid fa-handshake"></i></span><span><span class="ttl">Empresas Apoiadoras Institucional</span><span class="sub">Apoio institucional para pequenos negócios</span></span></a>
+          <a href="parcerias.html#start"><span class="ic"><i class="fa-solid fa-toolbox"></i></span><span><span class="ttl">Empresas Start</span><span class="sub">Ferramentas, infraestrutura e serviços</span></span></a>
+          <a href="parcerias.html#ancora"><span class="ic"><i class="fa-solid fa-anchor"></i></span><span><span class="ttl">Empresa Âncora</span><span class="sub">Parceria estratégica com contribuição mensal</span></span></a>
+        </div>
+      </li>
+      <li><a href="faq.html" class="link">FAQ</a></li>
+      <li><a href="contato.html" class="link">Contato</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="enter-link">Comunidade</a>
+      <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Quero participar</a>
+      <button class="burger" id="burgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE PANEL -->
+<div class="mobile-panel" id="mobilePanel">
+  <button class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></button>
+  <a href="index.html">Home</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="como-funciona.html">Como funciona</a>
+  <div class="mp-sub">
+    <a href="como-funciona.html#devs"><i class="fa-solid fa-code"></i> Para Devs</a>
+    <a href="como-funciona.html#leaders"><i class="fa-solid fa-chalkboard-user"></i> Para Tech Leaders</a>
+  </div>
+  <a href="parcerias.html">Parcerias</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contato.html">Contato</a>
+  <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="mp-link">Comunidade</a>
+  <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="mp-link" style="color:var(--violet)">Quero participar →</a>
+</div>
+
+<main>
+
+  <section class="page-hero" data-rail="Como funciona">
+    <div class="wrap">
+      <div class="breadcrumb reveal"><a href="index.html">Home</a><span class="sep">/</span><span class="current">Como funciona</span></div>
+      <div class="eyebrow reveal">Como funciona</div>
+      <h1 class="reveal">Duas jornadas, um mesmo ecossistema.</h1>
+      <p class="lead reveal">Escolha o caminho que representa você hoje — e veja como o Arena Dev acompanha essa evolução.</p>
+    </div>
+  </section>
+
+  <section class="section" data-rail="Jornadas" style="border-top:none;padding-top:0;">
+    <div class="wrap">
+      <div class="tabs-switch reveal">
+        <button class="tab-btn active" data-tab-btn="devs"><i class="fa-solid fa-code"></i> Para Devs</button>
+        <button class="tab-btn" data-tab-btn="leaders"><i class="fa-solid fa-chalkboard-user"></i> Para Tech Leaders / Mentores</button>
+      </div>
+
+      <!-- DEVS TAB -->
+      <div class="tab-panel active" id="tab-devs">
+        <h3 style="color:var(--text);margin-bottom:24px;" class="reveal">O ciclo do desenvolvedor</h3>
+        <div class="cycle-flow reveal">
+          <div class="cycle-step"><div class="cycle-marker"><span class="n">01</span></div><div class="cycle-content"><h4>Inscreva-se</h4></div></div>
+          <div class="cycle-step"><div class="cycle-marker"><span class="n">02</span></div><div class="cycle-content"><h4>Entre em uma turma</h4></div></div>
+          <div class="cycle-step"><div class="cycle-marker"><span class="n">03</span></div><div class="cycle-content"><h4>Aprenda</h4></div></div>
+          <div class="cycle-step"><div class="cycle-marker"><span class="n">04</span></div><div class="cycle-content"><h4>Colabore</h4></div></div>
+          <div class="cycle-step"><div class="cycle-marker"><span class="n">05</span></div><div class="cycle-content"><h4>Desenvolva projetos</h4></div></div>
+          <div class="cycle-step"><div class="cycle-marker"><span class="n">06</span></div><div class="cycle-content"><h4>Receba feedback</h4></div></div>
+          <div class="cycle-step"><div class="cycle-marker"><span class="n">07</span></div><div class="cycle-content"><h4>Evolua</h4></div></div>
+        </div>
+
+        <div class="xp-panel reveal">
+          <div class="xp-top">
+            <h3>Sistema de evolução</h3>
+            <span id="xpLabel">NÍVEL 03 · 620 / 1000 XP</span>
+          </div>
+          <div class="xp-bar-track"><div class="xp-bar-fill" id="xpFill"></div></div>
+          <div class="badge-grid">
+            <div class="badge-item"><div class="em"><i class="fa-solid fa-bolt"></i></div><div class="lb">XP</div></div>
+            <div class="badge-item"><div class="em"><i class="fa-solid fa-medal"></i></div><div class="lb">Níveis</div></div>
+            <div class="badge-item"><div class="em"><i class="fa-solid fa-award"></i></div><div class="lb">Badges</div></div>
+            <div class="badge-item"><div class="em"><i class="fa-solid fa-puzzle-piece"></i></div><div class="lb">Projetos</div></div>
+            <div class="badge-item"><div class="em"><i class="fa-solid fa-screwdriver-wrench"></i></div><div class="lb">Tecnologias</div></div>
+            <div class="badge-item"><div class="em"><i class="fa-solid fa-code-branch"></i></div><div class="lb">Contribuições</div></div>
+            <div class="badge-item"><div class="em"><i class="fa-solid fa-id-badge"></i></div><div class="lb">Perfil profissional</div></div>
+            <div class="badge-item"><div class="em"><i class="fa-solid fa-plus"></i></div><div class="lb">Muito mais</div></div>
+          </div>
+        </div>
+
+        <div class="grid-3 reveal" style="margin-top:20px;">
+          <div class="card"><div class="ic ic-violet"><i class="fa-solid fa-globe"></i></div><h4>Networking</h4><p>Troca constante com outros devs e Tech Leaders da sua turma.</p></div>
+          <div class="card"><div class="ic ic-amber"><i class="fa-solid fa-id-badge"></i></div><h4>Portfólio</h4><p>Cada projeto concluído fortalece seu perfil profissional.</p></div>
+          <div class="card"><div class="ic ic-teal"><i class="fa-solid fa-rocket"></i></div><h4>Oportunidades</h4><p>Proximidade com empresas parceiras dentro do ecossistema.</p></div>
+        </div>
+      </div>
+
+      <!-- LEADERS TAB -->
+      <div class="tab-panel" id="tab-leaders">
+        <h3 style="color:var(--text);margin-bottom:24px;" class="reveal">O papel do Tech Leader / Mentor</h3>
+        <div class="grid-4 reveal">
+          <div class="card"><div class="ic ic-amber"><i class="fa-solid fa-users"></i></div><h4>Liderança de equipes</h4><p>Conduz turmas e projetos, mantendo o time alinhado.</p></div>
+          <div class="card"><div class="ic ic-amber"><i class="fa-solid fa-chart-column"></i></div><h4>Acompanhamento de devs</h4><p>Monitora a evolução individual de cada desenvolvedor.</p></div>
+          <div class="card"><div class="ic ic-amber"><i class="fa-solid fa-magnifying-glass"></i></div><h4>Revisão de código</h4><p>Garante qualidade técnica e boas práticas nos projetos.</p></div>
+          <div class="card"><div class="ic ic-amber"><i class="fa-solid fa-compass"></i></div><h4>Orientação técnica</h4><p>Ajuda a resolver bloqueios e decisões de arquitetura.</p></div>
+          <div class="card"><div class="ic ic-amber"><i class="fa-solid fa-folder-open"></i></div><h4>Definição de projetos</h4><p>Estrutura os desafios que as turmas vão desenvolver.</p></div>
+          <div class="card"><div class="ic ic-amber"><i class="fa-solid fa-chart-line"></i></div><h4>Acompanhamento de evolução</h4><p>Acompanha XP, badges e portfólio de cada dev.</p></div>
+          <div class="card"><div class="ic ic-amber"><i class="fa-solid fa-seedling"></i></div><h4>Desenvolvimento de liderança</h4><p>Também evolui como líder enquanto forma novos talentos.</p></div>
+          <div class="card"><div class="ic ic-amber"><i class="fa-solid fa-globe"></i></div><h4>Networking</h4><p>Ganha visibilidade e conexões dentro do ecossistema Arena Dev.</p></div>
+        </div>
+        <div class="notice reveal" style="margin-top:28px;max-width:640px;">Como participar: Tech Leaders geralmente evoluem a partir da trilha de desenvolvedor, ou já chegam com experiência prévia e se candidatam à liderança de turmas.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section" data-rail="Faça parte">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2>Pronto para entrar na Arena?</h2>
+        <p>Escolha sua trilha e comece a transformar conhecimento em experiência.</p>
+        <div class="hero-ctas">
+          <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="btn btn-primary">Quero fazer parte</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><span class="bracket">&lt;</span>ARENA_DEV<span class="bracket">/&gt;</span></div>
+        <p>Um ecossistema onde desenvolvedores aprendem, colaboram, constroem projetos reais e evoluem juntos.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/arena-dev/about/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/arenadevoficial/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/ProjetoArenaDev" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="wa-cta"><i class="fab fa-whatsapp"></i> Entrar na comunidade do WhatsApp</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navegação</h5>
+        <a href="index.html">Home</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="como-funciona.html">Como funciona</a>
+        <a href="parcerias.html">Parcerias</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contato.html">Contato</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Ecossistema</h5>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">Quero ser Desenvolvedor</a>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">Quero ser Tech Leader</a>
+        <a href="parcerias.html">Empresa parceira</a>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">Comunidade</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Redes</h5>
+        <a href="https://www.linkedin.com/company/arena-dev/about/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://www.instagram.com/arenadevoficial/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://github.com/ProjetoArenaDev" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">WhatsApp ↗</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Feito com <i class="fa-solid fa-heart" style="color:var(--violet);"></i> pelo Arena Dev. Todos os direitos reservados.</span>
+      <span class="footer-tagline">LEVEL_UP() { junte-se ao próximo nível; }</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

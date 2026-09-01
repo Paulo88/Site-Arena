@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — Arena Dev</title>
+<meta name="description" content="Perguntas frequentes sobre o Arena Dev, organizadas por tema: comunidade, devs, Tech Leaders e empresas.">
+<link rel="icon" type="image/png" href="assets/downloads/Logotipo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<div class="top-progress" id="topProgress"></div>
+
+<!-- JOURNEY RAIL -->
+<nav class="rail" id="rail">
+  <div class="rail-track" id="railTrack">
+    <div class="rail-fill" id="railFill"></div>
+  </div>
+</nav>
+
+<!-- NAV -->
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><span class="bracket">&lt;</span>ARENA_DEV<span class="bracket">/&gt;</span><span class="blip"></span></a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="link">Home</a></li>
+      <li><a href="sobre.html" class="link">Sobre</a></li>
+      <li class="dd">
+        <button class="link" type="button">Como funciona <span class="caret">▾</span></button>
+        <div class="dropdown">
+          <a href="como-funciona.html#devs">
+            <span class="ic"><i class="fa-solid fa-code"></i></span>
+            <span><span class="ttl">Para Devs</span><span class="sub">Turmas, projetos e evolução por XP</span></span>
+          </a>
+          <a href="como-funciona.html#leaders">
+            <span class="ic"><i class="fa-solid fa-chalkboard-user"></i></span>
+            <span><span class="ttl">Para Tech Leaders / Mentores</span><span class="sub">Liderança, revisão e orientação técnica</span></span>
+          </a>
+        </div>
+      </li>
+      <li class="dd">
+        <button class="link" type="button">Parcerias <span class="caret">▾</span></button>
+        <div class="dropdown">
+          <a href="parcerias.html#apoiadoras"><span class="ic"><i class="fa-solid fa-handshake"></i></span><span><span class="ttl">Empresas Apoiadoras Institucional</span><span class="sub">Apoio institucional para pequenos negócios</span></span></a>
+          <a href="parcerias.html#start"><span class="ic"><i class="fa-solid fa-toolbox"></i></span><span><span class="ttl">Empresas Start</span><span class="sub">Ferramentas, infraestrutura e serviços</span></span></a>
+          <a href="parcerias.html#ancora"><span class="ic"><i class="fa-solid fa-anchor"></i></span><span><span class="ttl">Empresa Âncora</span><span class="sub">Parceria estratégica com contribuição mensal</span></span></a>
+        </div>
+      </li>
+      <li><a href="faq.html" class="link active">FAQ</a></li>
+      <li><a href="contato.html" class="link">Contato</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="enter-link">Comunidade</a>
+      <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Quero participar</a>
+      <button class="burger" id="burgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE PANEL -->
+<div class="mobile-panel" id="mobilePanel">
+  <button class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></button>
+  <a href="index.html">Home</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="como-funciona.html">Como funciona</a>
+  <div class="mp-sub">
+    <a href="como-funciona.html#devs"><i class="fa-solid fa-code"></i> Para Devs</a>
+    <a href="como-funciona.html#leaders"><i class="fa-solid fa-chalkboard-user"></i> Para Tech Leaders</a>
+  </div>
+  <a href="parcerias.html">Parcerias</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contato.html">Contato</a>
+  <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="mp-link">Comunidade</a>
+  <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="mp-link" style="color:var(--violet)">Quero participar →</a>
+</div>
+
+<main>
+
+  <section class="page-hero" data-rail="FAQ">
+    <div class="wrap">
+      <div class="breadcrumb reveal"><a href="index.html">Home</a><span class="sep">/</span><span class="current">FAQ</span></div>
+      <div class="eyebrow reveal">FAQ</div>
+      <h1 class="reveal">Perguntas frequentes.</h1>
+      <p class="lead reveal">Organizamos por tema para facilitar. Não achou sua dúvida? Fale com a gente.</p>
+    </div>
+  </section>
+
+  <section class="section" data-rail="Perguntas" style="border-top:none;padding-top:0;">
+    <div class="wrap" style="max-width:800px;">
+
+      <div class="faq-category reveal">
+        <div class="faq-category-head"><span class="ic"><i class="fa-solid fa-building-columns"></i></span><h3>Sobre o Arena Dev</h3></div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">O que é o Arena Dev? <span class="plus">+</span></button>
+            <div class="faq-a"><p>É um ecossistema onde desenvolvedores aprendem, colaboram, constroem projetos reais e evoluem junto a Tech Leaders e empresas parceiras.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Quem pode participar? <span class="plus">+</span></button>
+            <div class="faq-a"><p>Qualquer pessoa interessada em desenvolvimento — de quem está começando até quem já atua na área e quer liderar equipes.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Existe algum custo? <span class="plus">+</span></button>
+            <div class="faq-a"><p>A participação como desenvolvedor é gratuita. Empresas parceiras contam com modelos específicos de apoio ou investimento.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Recebo certificado? <span class="plus">+</span></button>
+            <div class="faq-a"><p>Sim, ao concluir turmas e projetos você recebe reconhecimento dentro do ecossistema, visível no seu perfil profissional.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-category reveal">
+        <div class="faq-category-head"><span class="ic"><i class="fa-solid fa-code"></i></span><h3>Para Devs</h3></div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">Preciso ter experiência? <span class="plus">+</span></button>
+            <div class="faq-a"><p>Não. Existem turmas para diferentes níveis, do iniciante ao mais avançado, cada uma com projetos compatíveis.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Como funcionam as turmas? <span class="plus">+</span></button>
+            <div class="faq-a"><p>Você entra em uma turma, aprende na prática, colabora com outros devs e desenvolve projetos reais com orientação de um Tech Leader.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Como funcionam os projetos? <span class="plus">+</span></button>
+            <div class="faq-a"><p>São desafios reais, muitas vezes trazidos por empresas parceiras, desenvolvidos em equipe e revisados por Tech Leaders.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">O Arena Dev oferece vagas de emprego? <span class="plus">+</span></button>
+            <div class="faq-a"><p>O Arena Dev aproxima devs de empresas parceiras através de projetos reais, o que frequentemente gera oportunidades — mas não é uma agência de empregos.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-category reveal">
+        <div class="faq-category-head"><span class="ic"><i class="fa-solid fa-chalkboard-user"></i></span><h3>Para Tech Leaders</h3></div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">Como me torno Tech Leader? <span class="plus">+</span></button>
+            <div class="faq-a"><p>Após evoluir como desenvolvedor dentro do ecossistema, ou já tendo experiência prévia, é possível se candidatar à liderança de turmas e projetos.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">O que se espera de um Tech Leader? <span class="plus">+</span></button>
+            <div class="faq-a"><p>Liderar turmas, revisar código, orientar tecnicamente os devs e acompanhar a evolução de cada um — enquanto também desenvolve suas próprias habilidades de liderança.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Tech Leaders recebem algo em troca? <span class="plus">+</span></button>
+            <div class="faq-a"><p>Ganham reconhecimento e visibilidade dentro do ecossistema, além de experiência real em liderança de equipes técnicas.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-category reveal">
+        <div class="faq-category-head"><span class="ic"><i class="fa-solid fa-building"></i></span><h3>Para Empresas</h3></div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">Empresas podem participar? <span class="plus">+</span></button>
+            <div class="faq-a"><p>Sim, como Âncora, Apoiadoras Institucional ou Start — cada modalidade com um tipo diferente de contribuição ao ecossistema.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Como minha empresa pode apoiar o Arena Dev? <span class="plus">+</span></button>
+            <div class="faq-a"><p>Entrando em contato pela nossa área de parcerias — vamos entender o formato de apoio mais adequado para o seu negócio.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Existe algum compromisso mínimo? <span class="plus">+</span></button>
+            <div class="faq-a"><p>Depende da modalidade escolhida. Conversamos com cada empresa para desenhar o formato de parceria mais adequado.</p></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section" data-rail="Fale conosco">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2>Ainda tem dúvidas?</h2>
+        <p>Fale diretamente com o time do Arena Dev.</p>
+        <div class="hero-ctas">
+          <a href="contato.html" class="btn btn-primary">Fale com a gente</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><span class="bracket">&lt;</span>ARENA_DEV<span class="bracket">/&gt;</span></div>
+        <p>Um ecossistema onde desenvolvedores aprendem, colaboram, constroem projetos reais e evoluem juntos.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/arena-dev/about/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/arenadevoficial/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/ProjetoArenaDev" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener" class="wa-cta"><i class="fab fa-whatsapp"></i> Entrar na comunidade do WhatsApp</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navegação</h5>
+        <a href="index.html">Home</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="como-funciona.html">Como funciona</a>
+        <a href="parcerias.html">Parcerias</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contato.html">Contato</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Ecossistema</h5>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">Quero ser Desenvolvedor</a>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">Quero ser Tech Leader</a>
+        <a href="parcerias.html">Empresa parceira</a>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">Comunidade</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Redes</h5>
+        <a href="https://www.linkedin.com/company/arena-dev/about/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://www.instagram.com/arenadevoficial/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://github.com/ProjetoArenaDev" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://chat.whatsapp.com/G2PsDLEThUjCctBKbCT8VH" target="_blank" rel="noopener">WhatsApp ↗</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Feito com <i class="fa-solid fa-heart" style="color:var(--violet);"></i> pelo Arena Dev. Todos os direitos reservados.</span>
+      <span class="footer-tagline">LEVEL_UP() { junte-se ao próximo nível; }</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

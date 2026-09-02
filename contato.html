@@ -135,6 +135,8 @@
 
         <div class="reveal">
           <form id="contactForm">
+    <input type="hidden" name="access_key" value="b0e20390-a889-4e16-9030-2b66335d2b3a">
+    <input type="hidden" name="audience" id="audienceInput" value="Desenvolvedor">
             <label style="font-size:12.5px;color:var(--muted-2);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.05em;">Para quem você deseja falar?</label>
             <div class="audience-pick">
               <button type="button" class="audience-btn active" data-audience="Desenvolvedor">Desenvolvedor</button>
@@ -145,10 +147,33 @@
             </div>
 
             <div style="margin-top:24px;">
-              <div class="field"><label>Nome</label><input type="text" required placeholder="Seu nome completo"></div>
-              <div class="field"><label>E-mail</label><input type="email" required placeholder="voce@email.com"></div>
-              <div class="field"><label>Assunto</label><input type="text" required placeholder="Sobre o que você quer falar?"></div>
-              <div class="field"><label>Mensagem</label><textarea required placeholder="Conte com detalhes..."></textarea></div>
+<div class="field"> <label>Nome</label> <input type="text" name="name" required placeholder="Seu nome completo"> </div>
+
+<div class="field">
+    <label>E-mail</label>
+    <input 
+        type="email" 
+        name="email"
+        required 
+        placeholder="voce@email.com">
+</div>
+
+<div class="field">
+    <label>Assunto</label>
+    <input 
+        type="text" 
+        name="subject"
+        required 
+        placeholder="Sobre o que você quer falar?">
+</div>
+
+<div class="field">
+    <label>Mensagem</label>
+    <textarea 
+        name="message"
+        required 
+        placeholder="Conte com detalhes..."></textarea>
+</div>
               <button type="submit" class="btn btn-primary" style="width:100%;margin-top:6px;">Enviar mensagem</button>
             </div>
           </form>

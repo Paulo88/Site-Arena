@@ -179,55 +179,94 @@ document.querySelectorAll("[data-quick-audience]").forEach((btn) => {
 const urlAudience = new URLSearchParams(location.search).get("audience");
 if (urlAudience) setAudience(urlAudience);
 
-const contactFormEl = document.getElementById("contactForm");
+const contactFormEl = document.getElementById('contactForm');
 
 if (contactFormEl) {
-  contactFormEl.addEventListener("submit", async (e) => {
+
+  contactFormEl.addEventListener('submit', async (e) => {
+
     e.preventDefault();
 
-    const submitButton = contactFormEl.querySelector('button[type="submit"]');
+    // Verifica se o hCaptcha foi preenchido
+    const hCaptchaResponse = contactFormEl.querySelector(
+      'textarea[name="h-captcha-response"]'
+    );
+
+    if (!hCaptchaResponse || !hCaptchaResponse.value) {
+      alert('Por favor, confirme que você não é um robô.');
+      return;
+    }
+
+    const submitButton = contactFormEl.querySelector(
+      'button[type="submit"]'
+    );
+
     const originalText = submitButton.textContent;
 
     submitButton.disabled = true;
-    submitButton.textContent = "Enviando...";
+    submitButton.textContent = 'Enviando...';
 
-    // Atualiza a categoria selecionada
-    const activeAudience = document.querySelector(".audience-btn.active");
+    // Mantém a categoria selecionada atualizada
+    const activeAudience = document.querySelector(
+      '.audience-btn.active'
+    );
 
     if (activeAudience) {
-      document.getElementById("audienceInput").value =
-        activeAudience.dataset.audience;
+      const audienceInput = document.getElementById('audienceInput');
+
+      if (audienceInput) {
+        audienceInput.value = activeAudience.dataset.audience;
+      }
     }
 
     const formData = new FormData(contactFormEl);
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
+
+      const response = await fetch(
+        'https://api.web3forms.com/submit',
+        {
+          method: 'POST',
+          body: formData
+        }
+      );
 
       const data = await response.json();
 
       if (data.success) {
-        contactFormEl.style.display = "none";
 
-        document.getElementById("contactSuccess").classList.add("show");
+        contactFormEl.style.display = 'none';
+
+        document
+          .getElementById('contactSuccess')
+          .classList.add('show');
+
       } else {
-        alert("Não foi possível enviar sua mensagem. Tente novamente.");
+
+        console.error('Web3Forms:', data);
+
+        alert(
+          'Não foi possível enviar sua mensagem. Tente novamente.'
+        );
 
         submitButton.disabled = false;
         submitButton.textContent = originalText;
       }
-    } catch (error) {
-      console.error("Erro ao enviar formulário:", error);
 
-      alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente.");
+    } catch (error) {
+
+      console.error('Erro ao enviar formulário:', error);
+
+      alert(
+        'Ocorreu um erro ao enviar sua mensagem. Tente novamente.'
+      );
 
       submitButton.disabled = false;
       submitButton.textContent = originalText;
     }
+
   });
+
 }
 
 /* ---------- MAIN ANIMATIONS (kicked off after the loading intro) ---------- */

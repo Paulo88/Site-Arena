@@ -1,7 +1,7 @@
 # Arena Dev — Site Institucional
 
 <p align="center">
-  <img src="assets/downsloads/Logotipo.png" alt="Arena Dev" width="220">
+  <img src="assets/downloads/Logotipo.png" alt="Arena Dev" width="220">
 </p>
 
 <p align="center">

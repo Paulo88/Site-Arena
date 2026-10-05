@@ -62,10 +62,10 @@ A estrutura do projeto está sendo organizada gradualmente para facilitar a manu
 ### Estrutura atual
 
 ```text
-arena-dev-site/
+Arena-Dev/site
 │
 ├── assets/
-│   └── downsloads/
+│   └── downloads/
 │       ├── Logotipo.png
 │       ├── arena-dev-midia-kit.pdf
 │       ├── cob.png
@@ -74,17 +74,18 @@ arena-dev-site/
 │       ├── oca.png
 │       └── pncc.png
 │
-├── components/
-│
-├── css/
-│
-├── js/
+├── components/       ← futura organização
+├── css/              ← futura organização
+├── js/               ← futura organização
 │
 ├── CNAME
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
 ├── SECURITY.md
+│
+├── app.js
+├── styles.css
 │
 ├── comofunciona.html
 ├── contato.html

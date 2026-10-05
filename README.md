@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://www.arenadevoficial.com.br">Site</a> •
   <a href="https://www.instagram.com/arenadevoficial">Instagram</a> •
-  <a href="https://www.linkedin.com/company/arena-dev-oficial">LinkedIn</a>
+  <a href="https://www.linkedin.com/company/arenadev">LinkedIn</a>
 </p>
 
 ---

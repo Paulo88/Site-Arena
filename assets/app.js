@@ -283,6 +283,189 @@ if (contactFormEl) {
 
 }
 
+/* ---------- PARTNERS MARQUEE: auto-scroll + arraste/seta manual ---------- */
+function setupPartnersMarquee(marquee) {
+  const track = marquee.querySelector(".partners-track");
+  if (!track) return;
+  const originals = Array.from(track.children).filter((el) => el.nodeType === 1);
+  if (originals.length < 2) return; /* 1 logo só: sem carrossel */
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const SPEED = 38; /* px por segundo */
+  const GAP = 22;
+
+  /* casca com setas (o reveal passa para a casca) */
+  const shell = document.createElement("div");
+  shell.className = "marquee-shell" + (marquee.classList.contains("reveal") ? " reveal" : "");
+  marquee.classList.remove("reveal");
+  marquee.parentNode.insertBefore(shell, marquee);
+  shell.appendChild(marquee);
+  const mkArrow = (dir, icon, label) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "marquee-arrow " + dir;
+    b.setAttribute("aria-label", label);
+    b.innerHTML = '<i class="fa-solid ' + icon + '"></i>';
+    shell.appendChild(b);
+    return b;
+  };
+  const prev = mkArrow("prev", "fa-chevron-left", "Ver parceiros anteriores");
+  const next = mkArrow("next", "fa-chevron-right", "Ver próximos parceiros");
+
+  let period = 0, pos = 0, lastSet = 0, last = performance.now();
+  let paused = false, holdCount = 0, resumeTimer = null, inView = true;
+
+  function build() {
+    track.querySelectorAll("[data-clone]").forEach((n) => n.remove());
+    const first = originals[0];
+    const setW = originals.length * (first.offsetWidth + GAP);
+    const sets = Math.ceil(marquee.clientWidth / setW) + 2;
+    for (let k = 1; k < sets; k++) {
+      originals.forEach((o) => {
+        const c = o.cloneNode(true);
+        c.setAttribute("data-clone", "1");
+        c.setAttribute("aria-hidden", "true");
+        c.setAttribute("tabindex", "-1");
+        track.appendChild(c);
+      });
+    }
+    const second = track.children[originals.length];
+    period = second.offsetLeft - first.offsetLeft;
+    pos = period;
+    marquee.scrollLeft = period;
+    lastSet = marquee.scrollLeft;
+  }
+  function wrap() {
+    if (!period) return;
+    if (marquee.scrollLeft >= 2 * period) marquee.scrollLeft -= period;
+    else if (marquee.scrollLeft < period * 0.5) marquee.scrollLeft += period;
+  }
+  function pauseFor(ms) {
+    paused = true;
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => {
+      if (holdCount > 0) return;
+      pos = marquee.scrollLeft;
+      paused = false;
+    }, ms);
+  }
+  function hold() { holdCount++; paused = true; clearTimeout(resumeTimer); }
+  function release(ms) {
+    holdCount = Math.max(0, holdCount - 1);
+    if (holdCount === 0) pauseFor(ms);
+  }
+
+  /* mouse: pausa no hover; toque: pausa enquanto toca e 2,5s depois */
+  marquee.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") hold(); });
+  marquee.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") release(600); });
+  marquee.addEventListener("touchstart", hold, { passive: true });
+  marquee.addEventListener("touchend", () => release(2500), { passive: true });
+  marquee.addEventListener("touchcancel", () => release(2500), { passive: true });
+  marquee.addEventListener("wheel", () => pauseFor(2500), { passive: true });
+  shell.addEventListener("focusin", hold);
+  shell.addEventListener("focusout", () => release(1500));
+
+  /* qualquer rolagem que não veio do auto-scroll = usuário mexendo */
+  marquee.addEventListener("scroll", () => {
+    if (Math.abs(marquee.scrollLeft - lastSet) > 1.5) {
+      if (holdCount === 0) pauseFor(2500);
+      wrap();
+      lastSet = marquee.scrollLeft;
+      pos = marquee.scrollLeft;
+    }
+  }, { passive: true });
+
+  /* arrastar com o mouse (desktop), com um pouco de inércia */
+  marquee.classList.add("is-ready");
+  marquee.addEventListener("dragstart", (e) => e.preventDefault());
+  let drag = false, moved = false, vel = 0, lastX = 0, lastT = 0, inertiaId = 0;
+  function onMove(e) {
+    const dx = e.clientX - lastX;
+    const now = performance.now();
+    if (!moved && Math.abs(e.clientX - startX) > 5) {
+      moved = true;
+      marquee.classList.add("is-dragging");
+    }
+    if (moved) {
+      marquee.scrollLeft -= dx;
+      const v = dx / Math.max(now - lastT, 1);
+      vel = 0.7 * v + 0.3 * vel;
+    }
+    lastX = e.clientX;
+    lastT = now;
+  }
+  function endInertia() {
+    marquee.classList.remove("is-dragging");
+    release(2500);
+  }
+  function onUp() {
+    window.removeEventListener("pointermove", onMove);
+    window.removeEventListener("pointerup", onUp);
+    window.removeEventListener("pointercancel", onUp);
+    drag = false;
+    if (!moved) { release(600); return; }
+    if (performance.now() - lastT > 80) vel = 0;
+    function glide() {
+      marquee.scrollLeft -= vel * 16;
+      vel *= 0.94;
+      if (Math.abs(vel) > 0.02) inertiaId = requestAnimationFrame(glide);
+      else endInertia();
+    }
+    glide();
+  }
+  let startX = 0;
+  marquee.addEventListener("pointerdown", (e) => {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    cancelAnimationFrame(inertiaId);
+    if (marquee.classList.contains("is-dragging")) marquee.classList.remove("is-dragging");
+    drag = true; moved = false; vel = 0;
+    startX = lastX = e.clientX;
+    lastT = performance.now();
+    hold();
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", onUp);
+  });
+  /* depois de arrastar, não abre o link do card por acidente */
+  marquee.addEventListener("click", (e) => {
+    if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+  }, true);
+
+  const step = () => (originals[0].offsetWidth + GAP) * 2;
+  prev.addEventListener("click", () => {
+    pauseFor(3500);
+    marquee.scrollBy({ left: -step(), behavior: "smooth" });
+  });
+  next.addEventListener("click", () => {
+    pauseFor(3500);
+    marquee.scrollBy({ left: step(), behavior: "smooth" });
+  });
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((en) => { inView = en[0].isIntersecting; }, { threshold: 0 }).observe(shell);
+  }
+  let rt;
+  window.addEventListener("resize", () => {
+    clearTimeout(rt);
+    rt = setTimeout(build, 200);
+  });
+
+  function tick(now) {
+    const dt = Math.min(now - last, 64);
+    last = now;
+    if (!paused && !reduceMotion && inView && period) {
+      pos += (SPEED * dt) / 1000;
+      if (pos >= 2 * period) pos -= period;
+      marquee.scrollLeft = pos;
+      lastSet = marquee.scrollLeft;
+    }
+    requestAnimationFrame(tick);
+  }
+  build();
+  requestAnimationFrame(tick);
+}
+document.querySelectorAll(".partners-marquee").forEach(setupPartnersMarquee);
+
 /* ---------- MAIN ANIMATIONS (kicked off after the loading intro) ---------- */
 function initAnimations() {
   /* ---------- COUNT UP STATS ---------- */
